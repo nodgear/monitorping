@@ -17,14 +17,6 @@ function checkPing
     }
 }
 
-if (Get-Module -ListAvailable -Name ToggleDisplay) {
-
-}else{
-    Write-Host "Módulo de controle não esta instalado, por favor rode ./install.ps1"
-    pause
-    return
-}
-
 if (!$pingIP -or !$pingTime) {
     Write-Output "Faltam argumentos"
     Write-Output "./monitorping.ps1 <ip> <tempo (segundos)>"
