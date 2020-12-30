@@ -33,7 +33,9 @@ if (checkPing){
 }else {
     Write-Host "Sem resposta -> Desligando monitores"
     &"C:/monitorping/nircmd.exe" monitor off
-    Start-Sleep -Seconds 5
-    Stop-Process -Name "NirCmd"
+    if (Get-Process -Name "NirCmd") {
+        Start-Sleep -Seconds 5
+        Stop-Process -Name "NirCmd"
+    }
 }
 return
